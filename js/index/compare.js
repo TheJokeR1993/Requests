@@ -127,5 +127,6 @@ help_item_btn.addEventListener('click',e=>{
  )
 
 const compare ={
-    btn_add
+    btn_add,
 }
+const log1212 = 'log'
