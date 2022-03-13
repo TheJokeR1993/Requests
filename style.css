@@ -369,7 +369,7 @@ input{
     margin: 0px 5px;
     
 }
-.container_example a{
+.ex_a{
 position: fixed;
 top: 0px;
 right: 0px;
@@ -398,6 +398,7 @@ line-height: 15px;
     margin-bottom: 5px;
 }
 .wrapper_name{
+    color:black;
     width: 100%;
     height: 100%;
     display: flex;
@@ -418,6 +419,9 @@ line-height: 15px;
     font-size: 19px;
     margin: 10px 0px;
 
+}
+.wrapper a{
+    color:blue
 }
 .wrapper h3{
     font-size: 16px;
