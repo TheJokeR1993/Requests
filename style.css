@@ -383,7 +383,6 @@ line-height: 15px;
 
 .wrapper {
     background: rgb(213, 255, 151);
-    height: 25vh;
     padding: 4px;
     display:flex;
    flex-direction: column;

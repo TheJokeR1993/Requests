@@ -19,11 +19,12 @@ function add_sumbol(){
 }
 
 const btn_add=(item)=>{
+    
     if(help_inp.value > arr_compare.length){
     if( arr_compare.find(i=>item.value ===i)) return
    arr_compare.push(item.value)
    item.disabled = true
-
+   help_item_btn.style.opacity ="1"
    localCompare.set(arr_compare)
 
    add_sumbol()
@@ -88,10 +89,18 @@ help_inp.addEventListener('input',e=>{
 })
 clear_btn.addEventListener('click',e=>{
     help_items.innerHTML=''
-   arr_compare.map(item=>   document.querySelector(`.symbol_${item}`).disabled = false
+    console.log(arr_compare);
+   arr_compare.map(item=> {
+       const sumbol =document.querySelector(`.symbol_${item}`)
+      if(sumbol!== null){
+          document.querySelector(`.symbol_${item}`).disabled = false
+      }
+   }  
    )
    arr_compare=[]
   localCompare.set(arr_compare)
+  help_item_btn.style.opacity ="0.2"
+  
 })
 
 help_items.addEventListener('dblclick',e=>{
@@ -99,13 +108,22 @@ help_items.addEventListener('dblclick',e=>{
     e.target.remove()
     arr_compare = arr_compare.filter(i=>e.target.innerHTML !== i && i)
    document.querySelector(`.symbol_${e.target.innerHTML}`).disabled = false
+   localCompare.set(arr_compare)
+   arr_compare.length 
+     ? help_item_btn.style.opacity ="1"
+     : help_item_btn.style.opacity ="0.2"
 })
 
-help_item_btn.addEventListener('click',e=>
-    e.target.href= `comparison.html?`+arr_compare.join('&')
+help_item_btn.addEventListener('click',e=>{
+    if(!arr_compare.length) return 
+    if(arr_compare.length=== 1){
+        e.target.href= `company.html?symbol=${arr_compare[0]}`
+    } else{
+        e.target.href= `comparison.html?`+arr_compare.join('&')
+    }
+}
  )
 
 const compare ={
-    onBlur,
     btn_add
 }
