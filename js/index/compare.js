@@ -52,6 +52,7 @@ const btn_add=(item)=>{
    
 }
 function help_inp_change(e){
+    console.log(e);
     const btn_plus =document.querySelector('.btn_plus')
     const btn_minus =document.querySelector('.btn_minus')
     const help_inp_error =document.querySelector('.help_inp_error')
@@ -67,6 +68,7 @@ function help_inp_change(e){
   if(btn_plus.disabled) return btn_plus.disabled=false
 
   }
+  
  
 }
 
@@ -74,11 +76,11 @@ function delete_error(e) {
     e.parentElement.parentElement.innerHTML=""
 }
 function max_min(e){
-    console.log(2);
     if(!+e.value) return e.value =arr_compare.length
     if(e.value.length >2) return e.value =9
     if(e.value < arr_compare.length) return e.value = arr_compare.length
     if(e.value > 9) return e.value = 9
+    help_inp.value =e.value
 }
 
 
