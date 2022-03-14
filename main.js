@@ -93,8 +93,3 @@ btn.addEventListener('click', e => {
 })
 
 
-
-
-//? function add_sumbol(){
-//?     help_items.innerHTML= arr_compare.map(i=>`<p>${i}</p>`).join('')
-
