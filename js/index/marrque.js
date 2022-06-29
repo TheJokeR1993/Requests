@@ -1,6 +1,6 @@
 function marrque_fun(data){
     const this_price = changePercent( data.profile.price)
-    
+ 
  
     for (let i = 0; i < marquee_box.length; i++) {
     marquee_box[i].innerHTML+=`
@@ -10,6 +10,7 @@ function marrque_fun(data){
     }
     
 }
+
 
 const marrque ={
     marrque_fun,

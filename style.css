@@ -53,9 +53,15 @@ input{
 .black{
     color:black
 }
+.body_company{
+margin :0 15px  ;
+}
 .main_container{
     display: flex;
     position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 900px;
     
     
 }
@@ -67,10 +73,16 @@ input{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border:2px solid grey;
    max-width: 900px;
    border-radius: 10px;
     box-shadow: 0px 0px 5px  black;
     
+}
+.container_active{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+
 }
 .container_shadow{
     box-shadow: 0px 0px 5px  black;
@@ -118,12 +130,17 @@ input{
     padding: 5px 10px;
 }
 
-.result_btn_items p{
-    margin: 0px 5px;
-    font-size: 13px;
-    font-weight: 100;
-    flex-grow: 1;
+.result_btn_company{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
+
+.result_btn_company b{
+    padding: 0px 7px;
+}
+
+
 
 
 .image{
@@ -165,9 +182,12 @@ input{
     color:blue;
     font-weight: normal;
 }
-.company_name h3{
+.company_info h3{
+    padding: 4px 10px;
+    width: 100%;
+    text-align: center;
     margin-left: 15px;
-    color:blue;
+    color:rgb(3, 3, 46);
     font-weight: normal;
 }
 .company_name p{
@@ -195,8 +215,11 @@ input{
     height: 100%;
     display: flex;
     align-items: center;
-    background-color: rgb(255, 251, 198);
+    background-color: white; 
     width:300%;
+}
+.marquee_active{
+   background-color: rgb(255, 251, 198); 
 }
 .marquee_box{
     width: 100%;
@@ -292,17 +315,35 @@ input{
 }
 
 .help_menu{
- 
+   
     position: absolute;
-    top: 7px;
-    right: 10%;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    height: 30px;
+    top: 5px;
+    left: 0;
+    width: 100%;  
+   
+  
 }
 
-.help_menu input {
+.help_div{
+    border: 2px solid grey;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 10px;
+    border-bottom: hidden;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+    padding: 5px 10px 7px;
+    display: flex;
+    justify-content: space-between;
+ 
+    
+}
+
+
+
+.help_div input {
     width: 50px;
 
 }
@@ -311,11 +352,12 @@ input{
     margin-right: 10px;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
+    
     flex-grow: 1;
     background: rgb(253, 220, 220);
     padding: 0 10px;
     overflow-x: auto;
+    border-radius: 10px;
   
 }
 
@@ -365,15 +407,19 @@ input{
 .container_example{
     position: relative;
     display: flex;
-    flex-direction: column;
-    margin: 0px 5px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    margin: 20px 20px;
+    
+   
     
 }
 .ex_a{
 position: fixed;
 top: 0px;
 right: 0px;
-
+border-radius: 4px;
 background: red;
 border:2px solid black;
 padding: 0px 10px;
@@ -387,14 +433,19 @@ line-height: 15px;
     display:flex;
    flex-direction: column;
     align-items: center;
-    margin: 5px;
+    justify-content: center;
+    margin: 10px;
     box-shadow: 0px 0px 5px black;
     border-radius: 10px;
+    width: 240px;
+   
 }
 .wrapper_info{
     width: 100%;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    
     margin-bottom: 5px;
 }
 .wrapper_name{
@@ -405,13 +456,15 @@ line-height: 15px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 
 }
 .wrapper img{
-    margin: 0px 10px;
+    margin: 5px 10px;
     border-radius: 10px;
-    height: 12vh;
-    width: 12vw;
+    box-shadow: 0px 0px 5px black;
+    width: 200px;
+    background: white;
     
 }
 .wrapper h2{
@@ -421,10 +474,11 @@ line-height: 15px;
 
 }
 .wrapper a{
-    color:blue;
+    
+    color:rgba(9, 26, 46, 0.631);
 }
 .wrapper h3{
-    font-size: 16px;
+    font-size: 25px;
 }
 .wrapper p {
     min-height: 20%;
@@ -441,7 +495,6 @@ line-height: 15px;
   }
   
   .wrapper ::-webkit-scrollbar-track {
-    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2); */
     border-radius: 10px;
     background-color: #f9f9fd;
   }
@@ -486,3 +539,30 @@ line-height: 15px;
     font-size:20px;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 768px) {
+    .help_inp  {
+        display: none;
+        
+    }
+    .clear_btn{
+        margin-left: 0;
+        padding: 0px 2px;
+        font-weight:400;
+    }
+    .help_item_btn{
+        padding:  2px;
+        font-weight:400;
+    }
+    .result_btn_company p {
+        display: none;
+        
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    
+    .result_btn_company p {
+        display: none;
+        
+    }
+  }

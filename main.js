@@ -1,6 +1,6 @@
 
 const reg = /([A-Z]+)?\w+/
-
+const marquee = document.querySelector('.marquee')
 let current_search_value = window.location.search.slice(1)
 
 
@@ -31,10 +31,10 @@ const change_result = () => {
                 })
                 .then(e => {
                     if (e.length) {
-
+                        marquee.classList.add('marquee_active')
                         e.map(item => item.then(paint_result_btn))
                     } else {
-
+                        marquee.classList.remove('marquee_active')
                         result_btn.innerHTML = 'Not found'
 
                     }
@@ -47,27 +47,32 @@ const change_result = () => {
 
 
 input.addEventListener('input', e => {
-
+    
+    console.log(!input.value);
+    console.log(e.target.value);
     change_input.push_state_url()
-
-
+    
+    
     if (input_change()) {
         result.innerHTML = ' <img class="spinner" src="img/star.gif" alt="">'
         // Open_result()
         time_set_timout()
         error_rezult(true)
     }
+    !e.target.value
+      ?btn.disabled = true
+      : btn.disabled = false
 
 
 
 })
 
 const paint_result_btn = data => {
+    
     if (!data.symbol || !T.input.value.trim()) return
 
 
     click_search_result.paint_result_click(data)
-
     marrque.marrque_fun(data)
 
 
@@ -81,14 +86,13 @@ change_input.paint_current_result()
 
 
 btn.addEventListener('click', e => {
+    
     if (current_search_value === input.value) return
-
     current_search_value = input.value
     result_btn.innerHTML = ' <img class="spinner" src="img/star.gif" alt="">'
     change_result()
     Open_result()
-
-
+    
     marquee_box.forEach(div => div.innerHTML = '')
 })
 

@@ -16,9 +16,10 @@ const first=() =>{
 }
 
 const comparison = (arg)=>{
+   
     container_example.innerHTML+=`
     
-    <div class="wrapper">
+    <div class="wrapper" ">
         <div class="wrapper_info" >
         <img src="${arg.profile.image}"  onerror="error(this)">
         <div  class="wrapper_name">
@@ -28,8 +29,6 @@ const comparison = (arg)=>{
         </div>
         
         </div>
-
-        <p>${arg.profile.description}</p>
     </div>
     `
   

@@ -1,34 +1,27 @@
-// const onBlur = (inp, cop) =>{
-    
-//     if(inp.value < 2) return inp.value = 2
-//     if(inp.value > 99) return inp.value = 99
-//     inp.value < arr_compare.length  && (inp.value = arr_compare.length  )
-//     if(cop){
-//         if(inp.value > arr_compare.length){
-           
-//             help_inp.value = inp.value
-//             console.log(inp.parentElement.className);
-//             inp.parentElement.style.display = 'none'
-//         }
-//     }
-// }
 
 function add_sumbol(){
-    help_items.innerHTML= arr_compare.map(i=>`<p>${i}</p>`).join('')
- 
+    
+    if(!arr_compare.length){
+        help_div.style.display="none"
+    }else{
+        help_div.style.display="flex"
+        
+        help_items.innerHTML= arr_compare.map(i=>`<p>${i}</p>`).join('')
+    }
 }
 
 const btn_add=(item)=>{
     
     if(help_inp.value > arr_compare.length){
-    if( arr_compare.find(i=>item.value ===i)) return
+        if( arr_compare.find(i=>item.value ===i)) return
+        
+        container.classList.add('container_active')
    arr_compare.push(item.value)
    item.disabled = true
    help_item_btn.style.opacity ="1"
    localCompare.set(arr_compare)
-
    add_sumbol()
-  
+   h_inp(localCompare.get())
  }
      else{
         error_div.innerHTML =`
@@ -51,8 +44,15 @@ const btn_add=(item)=>{
     
    
 }
+
+function h_inp(arr){
+    console.log(arr);
+    arr.length<=3 
+    ? help_items.style.justifyContent='space-around'
+    : help_items.style.justifyContent='space-between'
+}
 function help_inp_change(e){
-    console.log(e);
+    
     const btn_plus =document.querySelector('.btn_plus')
     const btn_minus =document.querySelector('.btn_minus')
     const help_inp_error =document.querySelector('.help_inp_error')
@@ -102,7 +102,8 @@ clear_btn.addEventListener('click',e=>{
    arr_compare=[]
   localCompare.set(arr_compare)
   help_item_btn.style.opacity ="0.2"
-  
+  help_div.style.display="none"
+  container.classList.remove('container_active')
 })
 
 help_items.addEventListener('dblclick',e=>{
@@ -111,22 +112,24 @@ help_items.addEventListener('dblclick',e=>{
     arr_compare = arr_compare.filter(i=>e.target.innerHTML !== i && i)
    document.querySelector(`.symbol_${e.target.innerHTML}`).disabled = false
    localCompare.set(arr_compare)
+   h_inp( localCompare.get())
    arr_compare.length 
      ? help_item_btn.style.opacity ="1"
      : help_item_btn.style.opacity ="0.2"
 })
 
 help_item_btn.addEventListener('click',e=>{
-    if(!arr_compare.length) return 
+   
     if(arr_compare.length=== 1){
         e.target.href= `company.html?symbol=${arr_compare[0]}`
     } else{
         e.target.href= `comparison.html?`+arr_compare.join('&')
+     
     }
 }
  )
 
 const compare ={
     btn_add,
+    h_inp
 }
-const log1212 = 'log'
