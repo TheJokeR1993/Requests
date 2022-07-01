@@ -7,8 +7,8 @@ function paint_first (){
       
     }
     const L = localCompare.get()
-    
-    if(!L.length){
+
+    if(!L){
         help_div.style.display="none"
         container.classList.remove('container_active')
     }else{
