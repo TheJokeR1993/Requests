@@ -23,9 +23,10 @@ const comparison = (arg)=>{
         <div class="wrapper_info" >
         <img src="${arg.profile.image}"  onerror="error(this)">
         <div  class="wrapper_name">
-        <h2><a href="company.html?symbol=${arg.symbol}">${arg.profile.companyName} (${arg.symbol})</a></h2>
-        <h3>Price: $${arg.profile.price}</h3>
-        <h3>To day: <em class="${changePercent(arg.profile.changesPercentage).class_str}">${changePercent(arg.profile.changesPercentage).number}%</em></h3>
+        <a href="company.html?symbol=${arg.symbol}">${arg.profile.companyName} (${arg.symbol})</a>
+        <h3>Price: $${arg.profile.price}
+        <br>
+        To day: <em class="${changePercent(arg.profile.changesPercentage).class_str}">${changePercent(arg.profile.changesPercentage).number}%</em></h3>
         </div>
         
         </div>

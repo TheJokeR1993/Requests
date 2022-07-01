@@ -14,10 +14,10 @@ function paint_first (){
     }else{
         container.classList.add('container_active')
         arr_compare = L
-        
         add_sumbol()
         help_div.style.display="flex"
         L.length>=2 && (help_inp.value = L.length)
+        max_min();
         h_inp(arr_compare)
         arr_compare.length 
      ? help_item_btn.style.opacity ="1"
