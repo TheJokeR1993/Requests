@@ -51,7 +51,6 @@ result.innerHTML= data
 }
 
 function input_change(){
-    
     if(!input.value.trim()){
         Open_result()
          error_rezult(true)

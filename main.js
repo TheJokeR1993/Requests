@@ -47,9 +47,6 @@ const change_result = () => {
 
 
 input.addEventListener('input', e => {
-    
-    console.log(!input.value);
-    console.log(e.target.value);
     change_input.push_state_url()
     
     
