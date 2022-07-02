@@ -384,6 +384,7 @@ margin :0 15px  ;
 
 }
 .items_all_info button{
+    cursor: pointer;
     position: absolute;
     top:-4px;right: 0;
     background: red;
