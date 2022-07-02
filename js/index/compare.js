@@ -30,7 +30,7 @@ const btn_add=(item)=>{
         error_div.innerHTML =`
         <div class="help_inp_erorr_blur"></div>
             <div class="help_inp_erorr" >
-            <button onClick="delete_error(this)" class="delete_error">X</button>
+            <button onClick="delete_error()" class="delete_error">X</button>
             <h2>Increase value </h2>
 
             <div>
@@ -38,7 +38,10 @@ const btn_add=(item)=>{
                 <input class="help_inp_error" value="${help_inp.value}" onInput="max_min(this)">
                 <button class="btn_plus" onClick="help_inp_change(this)" value='+' >+</button>
             </div>
-            <button onClick="delete_error(this)">Continue</button>
+            <div>
+            <button onClick="delete_error()">Continue</button>
+            <button onClick="delete_error('max')">Continue max(99)</button>
+            </div>
             </div>
         `
     }
@@ -59,7 +62,6 @@ function help_inp_change(e){
     const help_inp_error =document.querySelector('.help_inp_error')
     if(e.value === '+'){
        if(help_inp_error.value ==="99" ) return e.disabled=true
-       console.log( help_inp.value);
        help_inp.value++
        help_inp_error.value++
       localCompare.setN(help_inp.value)
@@ -76,23 +78,35 @@ function help_inp_change(e){
  
 }
 
-function delete_error(e) {
-    e.parentElement.parentElement.innerHTML=""
+function delete_error(arg) {
+    const help_inp_error = document.querySelector('.help_inp_error')
+    if(!arg){
+        help_inp_error.value >= arr_compare.length
+        ?error_div.innerHTML=""
+         : help_inp_error.style.border = '2px dashed red'
+        
+   
+    }else{
+        localCompare.setN('99')
+        help_inp.value=99
+        error_div.innerHTML=""
+    }
+    
 }
 function max_min(e){
     let num= localCompare.getN()
-    console.log(!num);
+    
     if(!num){
         return help_inp.value =  4
     } else{
-       num>=99 
+       num>99 
        ? help_inp.value=99
        :help_inp.value = num
     }
-   console.log(help_inp.value);
+  
     if(e){
-       console.log(11);
-       if(e.value<=99) {
+       
+       if(e.value<99) {
         localCompare.setN(e.value)
         help_inp.value = e.value
        }else{
@@ -115,7 +129,7 @@ help_inp.addEventListener('input',e=>{
        
    }, 1000);
     }
-    if(+e.target.value >= 99) return e.target.value = 99
+    if(+e.target.value > 99) return e.target.value = 99
     
     localCompare.setN(e.target.value)
 })
@@ -138,8 +152,6 @@ clear_btn.addEventListener('click',e=>{
 })
 
 function delete_item(e){
-    
-    
     e.remove()
     arr_compare = arr_compare.filter(i=>e.innerHTML !== i && i)
    document.querySelector(`.symbol_${e.innerHTML}`).disabled = false
@@ -166,11 +178,13 @@ help_item_btn.addEventListener('click',e=>{
  function look_all_items(arg){
     if(!items_all.innerHTML || arg==='add'){
         items_all.style.display='block'
-        items_all.innerHTML =`<p>Click to delete</p>
+        items_all.innerHTML =`<div class="items_all_info">
+        <button onclick="look_all_items()" class="items_all_close">X</button>
+        <p>Click to delete</p>
+        </div>
         <div class="items">
         ${ arr_compare.map(i=>`<button onclick="delete_item(this)" >${i}</button>`).join('')}
         </div>
-        
         ` 
     } else{
        

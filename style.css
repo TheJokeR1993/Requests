@@ -370,7 +370,17 @@ margin :0 15px  ;
     text-align: center;
 }
 
+.items_all_info{
+   position: relative;
 
+}
+.items_all_info button{
+    position: absolute;
+    top:-4px;right: 0;
+    background: red;
+    border: 1px solid black;
+    border-radius: 5px;
+}
 .items{
     width: 100%;
     max-width: 70vw;
@@ -594,10 +604,18 @@ line-height: 15px;
     }
   }
   @media only screen and (max-width: 600px) {
-    
+    .help_div{
+        justify-content:center;
+    }
     .result_btn_company p {
         display: none;
         
+    }
+    .help_items{
+        display: none;
+    }
+    .items_all{
+        left: -21vw;
     }
    
   }
