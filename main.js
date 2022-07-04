@@ -30,13 +30,14 @@ const change_result = () => {
                     return e
                 })
                 .then(e => {
+                    
                     if (e.length) {
                         marquee.classList.add('marquee_active')
                         e.map(item => item.then(paint_result_btn))
                     } else {
                         marquee.classList.remove('marquee_active')
                         result_btn.innerHTML = 'Not found'
-
+                        marrque.marrque_fun('NoFound')
                     }
 
                 })
@@ -68,7 +69,7 @@ const paint_result_btn = data => {
     
     if (!data.symbol || !T.input.value.trim()) return
 
-
+   
     click_search_result.paint_result_click(data)
     marrque.marrque_fun(data)
 

@@ -1,7 +1,6 @@
 const L = {
     ARR_COMPARE:'ARR_COMPARE',
-    NUM:'NUM'
-
+    NUM:'NUM',
 }
 
 const localCompare = {

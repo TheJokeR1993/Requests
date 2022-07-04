@@ -7,10 +7,11 @@ function paint_first (){
       
     }
     const L = localCompare.get()
-  
+    
     if(!L|| !L.length ){
         help_div.style.display="none"
         container.classList.remove('container_active')
+        marrque.marrque_fun('first')
     }else{
         container.classList.add('container_active')
         arr_compare = L
@@ -20,12 +21,14 @@ function paint_first (){
         max_min();
         h_inp(arr_compare)
         arr_compare.length 
-     ? help_item_btn.style.opacity ="1"
-     : help_item_btn.style.opacity ="0.2"
+        ? help_item_btn.style.opacity ="1"
+        : help_item_btn.style.opacity ="0.2"
     }
     
     
-   
+    
+    
+    
 }
 
 
