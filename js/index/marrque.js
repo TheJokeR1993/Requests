@@ -3,7 +3,7 @@
 function marrque_fun(data){
     
     let text = ''
-   console.log(!window.location.search);
+   
     if(typeof data === 'string'){
          if(data==='first'&& !window.location.search  ){
           

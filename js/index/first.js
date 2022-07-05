@@ -11,7 +11,6 @@ function paint_first (){
     if(!L|| !L.length ){
         help_div.style.display="none"
         container.classList.remove('container_active')
-        marrque.marrque_fun('first')
     }else{
         container.classList.add('container_active')
         arr_compare = L
@@ -24,6 +23,7 @@ function paint_first (){
         ? help_item_btn.style.opacity ="1"
         : help_item_btn.style.opacity ="0.2"
     }
+    marrque.marrque_fun('first')
     
     
     
